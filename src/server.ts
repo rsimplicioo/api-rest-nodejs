@@ -1,10 +1,11 @@
 import fastify from 'fastify'
 import { env } from './env'
+import { transactionsRoutes } from './routes/transactions'
 
 const app = fastify()
 
-app.get('/hello', async () => {
-  return 'transactions'
+app.register(transactionsRoutes, {
+  prefix: 'transactions',
 })
 
 app
